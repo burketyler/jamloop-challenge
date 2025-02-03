@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
+This is a NextJS proof of concept application developed for the JamLoop UI challenge.
+
+- This project uses eslint to enforce unidirectional import rules, and file naming conventions.
+- Material UI has been used as a component library. MUI has an extensive list of components and it's component interface lends itself really well to creating design systems. Are there better choices for NextJS? Potentially, but that's out of scope for this POC.
+- Hook forms has been used for client-side form validation.
+- Zod has been used to define entities and for server-side validation as well as a resolver for hook forms.
+- Prettier and eslint is used for formatting and linting. 
+- Project structure follows a derivative of Bulletproof React.
+
+### Developing
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building
+To run a production optimized build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+```
 
-## Learn More
+You can serve the production build locally by calling:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Production-ready checklist
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Set up Storybook.
+- Set up Husky and Commitizen to enforce commit message and code linting, formatting is done prior to commiting changes remotely.
+- Set up import order eslint plugin to format and order imports (cleaner, feels nice).
+- Improve documentation including how to effectively contribute to the repo, project structure, code conventions and standards etc.
+  - This could potentially include component templates/scaffolding if necessary.
+- Material UI components should be wrapped with project-defined components, this allows for easier customisation of consumption patterns as well as improve the ability to refactor in the future.
+- Integrate with a real backend, instead of mocks. 
+- Look at using a middleware for optimistic page permission evaluation. Right not it's all done server side, but some of that can be pushed to the client.
+- Image optimization for static images to improve page load performance.
+- Create clear and re-usable patterns for interacting with Forms and Server Actions/Client API calls.
+- Create clear pattern for page metadata, including implementation of breadcrumbs.
+- Set up testing, E2E using Cypress or Playwright, unit testing for component library/highly reusable items using React Testing Library and Vitest or Jest.
+- Set up environment configuration.
