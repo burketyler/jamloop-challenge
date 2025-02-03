@@ -17,6 +17,10 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can log in by using these two hard-coded customer accounts:
+
+- 1@test.com/Test123
+- 2@test.com/Test123
 
 ### Building
 To run a production optimized build:
